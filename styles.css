@@ -1,0 +1,32 @@
+﻿/* ========================================
+	KV TOGO - Hoofd stylesheet
+	Dit bestand bevat alleen de importvolgorde.
+	======================================== */
+
+/* 01) Basis */
+@import url('/styles/00-base.css');
+
+/* 02) Header */
+@import url('/styles/10-header.css');
+
+/* 03) Navigatie */
+@import url('/styles/20-navigation.css');
+
+/* 04) Pagina- en contentsecties */
+@import url('/styles/30-main-sections.css');
+
+/* 05) Hero carousel */
+@import url('/styles/40-hero-carousel.css');
+
+/* 06) Sponsoren swiper */
+@import url('/styles/50-sponsors-swiper.css');
+
+/* 07) Footer */
+@import url('/styles/60-footer.css');
+
+/* 08) Responsive overrides */
+@import url('/styles/70-responsive.css');
+
+@import url('/styles/80-table.css');
+
+@import url('/styles/90-brasserie.css');

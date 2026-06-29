@@ -1,0 +1,195 @@
+/* --- Brasserie Pagina Layout --- */
+
+/* Algemene pagina layout beperken voor leesbaarheid */
+.content-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* De Hoofdkaart (Het actuele menu dat nu te bestellen is) */
+.current-menu-card {
+    position: relative;
+    text-align: center;
+    padding: 40px 30px;
+    background-color: #ffffff;
+    border: 3px solid #ff0000; /* KV TOGO Rood */
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(255, 0, 0, 0.12);
+    margin-bottom: 50px;
+}
+
+/* "Nu op het menu" label bovenop de hoofdkaart */
+.current-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff0000; /* KV TOGO Rood */
+    color: #ffffff;
+    padding: 6px 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+}
+
+.current-menu-card h1 {
+    color: #ff0000; /* KV TOGO Rood */
+    font-size: 2.6rem;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.current-menu-card .subtitle {
+    font-size: 1.2rem;
+    color: #000000;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.current-price {
+    font-size: 1.3rem;
+    color: #ff0000;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.current-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #000000;
+    max-width: 780px;
+    margin: 0 auto 35px auto;
+}
+
+/* Grote opvallende bestelknop (Call to Action) */
+.order-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ff0000; /* KV TOGO Rood */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 18px 36px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-btn:hover {
+    background-color: #cc0000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.6);
+}
+
+.order-btn .btn-icon {
+    margin-right: 12px;
+    font-size: 1.5rem;
+}
+
+/* --- Archief Sectie (Oude gerechten eronder) --- */
+.menu-section {
+    margin-top: 20px;
+}
+
+.menu-section h2 {
+    color: #ff0000; /* KV TOGO Rood */
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.menu-intro {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 40px;
+}
+
+/* Het menu-grid (3 kolommen op desktop, 1 op mobiel) */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Het menukaartje zelf - Foto raakt de randen */
+.menu-item {
+    background-color: #ffffff;
+    padding: 0 0 25px 0; /* Geen padding aan de boven/zijkanten, alleen onderop */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+    overflow: hidden; /* Zorgt dat de foto de ronde hoeken volgt */
+}
+
+.menu-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Container voor de foto - Loopt volledig door tot de rand */
+.menu-image-container {
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+    background-color: #f3f4f6;
+}
+
+/* De afbeelding zelf met hover-zoom effect */
+.menu-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover .menu-img {
+    transform: scale(1.05);
+}
+
+/* Tekststyling binnen de archiefkaarten */
+.menu-item h3 {
+    color: #000000;
+    font-size: 1.25rem;
+    margin: 20px 15px 5px 15px; /* Ruimte rondom de titel */
+}
+
+/* Grijs "Archief" labeltje onder de titel */
+.menu-archive-tag {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.menu-item p {
+    color: #000000;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 0 20px; /* Nette marge aan de zijkanten */
+    margin: 0;
+}
+
+/* Container voor het brasserie-logo */
+.brasserie-logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* Het logo zelf begrenzen zodat het niet de hele kaart overneemt */
+.brasserie-logo {
+    max-width: 180px; /* Mooie subtiele breedte, pas aan naar wens */
+    height: auto;
+    object-fit: contain;
+}

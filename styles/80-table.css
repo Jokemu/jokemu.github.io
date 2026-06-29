@@ -1,0 +1,94 @@
+/* Container: Beperkt de breedte en centreert de tabel */
+.table-container {
+    width: 100%;
+    max-width: 850px; /* Minder breed, perfect leesbaar */
+    margin: 30px auto; 
+    overflow-x: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+}
+
+/* Basis tabel structuur */
+.training-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Nunito', sans-serif;
+    background-color: #ffffff;
+    text-align: left;
+}
+
+/* Donkerblauwe club-header */
+.training-table thead tr {
+    background-color: #ff0000;
+}
+
+.training-table th {
+    padding: 14px 18px;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+/* Cellen en duidelijke donkere tekst */
+.training-table td {
+    padding: 12px 18px;
+    border: 1px solid #d1d5db;
+    color: #111111;
+    font-size: 14px;
+}
+
+.training-table .team-name {
+    font-weight: 700;
+}
+
+.training-table .empty-cell {
+    color: #9ca3af;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* --- Duidelijke KNKV Competitie 2.0 Regenboogkleuren --- */
+
+/* U17 & Senioren (Om en om neutraal lichtgrijs) */
+.training-table tbody tr:nth-child(even):not([class^="cat-"]) {
+    background-color: #f9fafb;
+}
+.training-table .cat-u17 {
+    background-color: #ffffff;
+}
+
+/* Categorie: ROOD */
+.training-table .cat-rood {
+    background-color: #ffcccc !important;
+}
+
+/* Categorie: ORANJE */
+.training-table .cat-oranje {
+    background-color: #ffe0cc !important;
+}
+
+/* Categorie: GEEL */
+.training-table .cat-geel {
+    background-color: #fff5cc !important;
+}
+
+/* Categorie: GROEN */
+.training-table .cat-groen {
+    background-color: #d1f2d9 !important;
+}
+
+/* Categorie: BLAUW */
+.training-table .cat-blauwe-vlag {
+    background-color: #cfe2ff !important;
+}
+
+/* Kruumels & Kangoeroes (Neutrale lichte rij onderaan) */
+.training-table .cat-kruumels {
+    background-color: #f3f4f6 !important;
+}
+
+.training-table .info-cell {
+    color: #4b5563;
+    font-style: italic;
+    text-align: center;
+}
