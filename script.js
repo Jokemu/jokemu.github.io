@@ -176,8 +176,109 @@ function initAgendaCountdowns() {
     window.setInterval(updateCountdowns, 60000);
 }
 
+function initMobileNavigation() {
+    const header = document.querySelector('.site-header');
+    const toggleButton = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.navbar-nav');
+
+    if (!header || !toggleButton || !nav) return;
+
+    const updateHeaderOffset = () => {
+        const headerHeight = Math.ceil(header.getBoundingClientRect().height);
+        document.body.style.setProperty('--header-offset', `${headerHeight + 12}px`);
+    };
+
+    const closeAllSubmenus = () => {
+        nav.querySelectorAll('.nav-item.has-dropdown').forEach((item) => {
+            item.classList.remove('is-open');
+            const submenuToggle = item.querySelector('.submenu-toggle');
+            if (submenuToggle) submenuToggle.setAttribute('aria-expanded', 'false');
+        });
+    };
+
+    const closeMenu = () => {
+        header.classList.remove('menu-open');
+        toggleButton.setAttribute('aria-expanded', 'false');
+        toggleButton.setAttribute('aria-label', 'Open menu');
+        closeAllSubmenus();
+        updateHeaderOffset();
+    };
+
+    nav.querySelectorAll('.nav-item').forEach((item, index) => {
+        const dropdown = item.querySelector('.dropdown');
+        const navLink = item.querySelector('.nav-link');
+        if (!dropdown || !navLink) return;
+
+        item.classList.add('has-dropdown');
+        dropdown.id = dropdown.id || `nav-dropdown-${index + 1}`;
+
+        const submenuToggle = document.createElement('button');
+        submenuToggle.type = 'button';
+        submenuToggle.className = 'submenu-toggle';
+        submenuToggle.setAttribute('aria-label', `Toon submenu ${navLink.textContent.trim()}`);
+        submenuToggle.setAttribute('aria-expanded', 'false');
+        submenuToggle.setAttribute('aria-controls', dropdown.id);
+        submenuToggle.textContent = '▾';
+        item.insertBefore(submenuToggle, dropdown);
+
+        submenuToggle.addEventListener('click', (event) => {
+            event.preventDefault();
+            const isOpen = item.classList.contains('is-open');
+            closeAllSubmenus();
+            item.classList.toggle('is-open', !isOpen);
+            submenuToggle.setAttribute('aria-expanded', String(!isOpen));
+            updateHeaderOffset();
+        });
+
+        navLink.addEventListener('click', (event) => {
+            if (window.innerWidth > 900) return;
+            if (item.classList.contains('is-open')) return;
+
+            event.preventDefault();
+            closeAllSubmenus();
+            item.classList.add('is-open');
+            submenuToggle.setAttribute('aria-expanded', 'true');
+            updateHeaderOffset();
+        });
+    });
+
+    toggleButton.addEventListener('click', () => {
+        const willOpen = !header.classList.contains('menu-open');
+        header.classList.toggle('menu-open', willOpen);
+        toggleButton.setAttribute('aria-expanded', String(willOpen));
+        toggleButton.setAttribute('aria-label', willOpen ? 'Sluit menu' : 'Open menu');
+        if (!willOpen) closeAllSubmenus();
+        updateHeaderOffset();
+    });
+
+    nav.addEventListener('click', (event) => {
+        const clickedLink = event.target instanceof Element ? event.target.closest('a') : null;
+        if (!clickedLink || window.innerWidth > 900) return;
+        window.setTimeout(closeMenu, 0);
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!(event.target instanceof Node)) return;
+        if (header.contains(event.target)) return;
+        closeMenu();
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) {
+            header.classList.remove('menu-open');
+            closeAllSubmenus();
+            toggleButton.setAttribute('aria-expanded', 'false');
+            toggleButton.setAttribute('aria-label', 'Open menu');
+        }
+        updateHeaderOffset();
+    });
+
+    updateHeaderOffset();
+}
+
 async function initPage() {
     await loadPartials();
+    initMobileNavigation();
     renderNewsDetailPage();
     initSwipers();
     initAgendaCountdowns();

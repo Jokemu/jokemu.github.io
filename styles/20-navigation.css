@@ -9,6 +9,10 @@
     position: relative;
 }
 
+.nav-item .submenu-toggle {
+    display: none;
+}
+
 .nav-link {
     color: #FFFFFF;
     text-decoration: none;
@@ -28,6 +32,12 @@
 
 .nav-link:hover {
     opacity: 0.8;
+}
+
+.nav-item.has-dropdown > .nav-link::after {
+    content: '▾';
+    margin-left: 0.45rem;
+    font-size: 0.8em;
 }
 
 .dropdown {
@@ -71,5 +81,102 @@
 .dropdown a:hover {
     background: rgba(255, 255, 255, 0.12);
     transform: translateX(3px);
+}
+
+@media (max-width: 900px) {
+    .navbar-nav {
+        position: absolute;
+        top: calc(100% + 0.55rem);
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.2rem;
+        background: #ce0000;
+        border-radius: 12px;
+        padding: 0.5rem;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+    }
+
+    .site-header.menu-open .navbar-nav {
+        display: flex;
+    }
+
+    .nav-item {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .nav-link {
+        width: 100%;
+        font-size: 1.02rem;
+        padding: 0.75rem 0.8rem;
+        border-radius: 8px;
+    }
+
+    .nav-item.has-dropdown > .nav-link::after {
+        display: none;
+    }
+
+    .nav-item .submenu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.4rem;
+        height: 2.4rem;
+        border: 0;
+        background: transparent;
+        color: #ffffff;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-right: 0.2rem;
+    }
+
+    .nav-item .submenu-toggle:hover {
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    .dropdown {
+        position: static;
+        min-width: unset;
+        border-radius: 8px;
+        margin-top: 0;
+        background: rgba(0, 0, 0, 0.14);
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        grid-column: 1 / -1;
+        transition: max-height 0.22s ease;
+    }
+
+    .nav-item:hover .dropdown {
+        transform: none;
+    }
+
+    .nav-item.is-open .dropdown {
+        max-height: 360px;
+    }
+
+    .nav-item.is-open .submenu-toggle {
+        transform: rotate(180deg);
+    }
+
+    .dropdown a {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    .dropdown a:hover {
+        transform: none;
+    }
 }
 
