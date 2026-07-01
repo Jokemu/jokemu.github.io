@@ -18,7 +18,7 @@
 }
 
 const ACCESS_GATE_ENABLED = true;
-const ACCESS_PASSWORD = 'togo2026';
+const ACCESS_PASSWORD = 'Togo2026site';
 const ACCESS_SESSION_KEY = 'kvtogo_access_granted';
 
 function initSimpleAccessGate() {
@@ -29,8 +29,10 @@ function initSimpleAccessGate() {
     if (sessionStorage.getItem(ACCESS_SESSION_KEY) === '1') return true;
 
     const enteredPassword = window.prompt('Website tijdelijk afgeschermd. Voer het wachtwoord in:');
+    const normalizedEnteredPassword = (enteredPassword || '').trim().toLowerCase();
+    const normalizedAccessPassword = ACCESS_PASSWORD.trim().toLowerCase();
 
-    if (enteredPassword === ACCESS_PASSWORD) {
+    if (normalizedEnteredPassword === normalizedAccessPassword) {
         sessionStorage.setItem(ACCESS_SESSION_KEY, '1');
         return true;
     }
