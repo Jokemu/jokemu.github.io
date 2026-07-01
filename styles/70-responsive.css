@@ -1,5 +1,27 @@
 ﻿/* Responsive */
 @media (max-width: 768px) {
+    body,
+    p,
+    li,
+    a,
+    span,
+    button,
+    input,
+    textarea,
+    select {
+        font-family: 'Nunito', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .kvtogo-text {
+        font-family: 'Impact', sans-serif;
+    }
+
     .container {
         padding: 0 14px;
     }
