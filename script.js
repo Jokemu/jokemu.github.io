@@ -17,6 +17,28 @@
     );
 }
 
+const ACCESS_GATE_ENABLED = true;
+const ACCESS_PASSWORD = 'togo2026';
+const ACCESS_SESSION_KEY = 'kvtogo_access_granted';
+
+function initSimpleAccessGate() {
+    if (!ACCESS_GATE_ENABLED) return true;
+
+    const path = window.location.pathname.toLowerCase();
+    if (path.endsWith('/coming-soon.html')) return true;
+    if (sessionStorage.getItem(ACCESS_SESSION_KEY) === '1') return true;
+
+    const enteredPassword = window.prompt('Website tijdelijk afgeschermd. Voer het wachtwoord in:');
+
+    if (enteredPassword === ACCESS_PASSWORD) {
+        sessionStorage.setItem(ACCESS_SESSION_KEY, '1');
+        return true;
+    }
+
+    window.location.replace('/coming-soon.html');
+    return false;
+}
+
 const NEWS_ITEMS = {
     'start-seizoen-2026-2027': {
         title: 'Start seizoen 2026-2027',
@@ -281,6 +303,9 @@ function initMobileNavigation() {
 }
 
 async function initPage() {
+    const hasAccess = initSimpleAccessGate();
+    if (!hasAccess) return;
+
     await loadPartials();
     initMobileNavigation();
     renderNewsDetailPage();

@@ -1,0 +1,30 @@
+# Protect entire site with Basic Auth, except the public coming-soon page.
+
+AuthType Basic
+AuthName "KV TOGO - Onderhoud"
+AuthBasicProvider file
+
+# IMPORTANT:
+# Replace this with the real absolute server path to your .htpasswd file.
+# Examples:
+# /home/youraccount/.htpasswd
+# /var/www/vhosts/yourdomain/.htpasswd
+AuthUserFile /home/youraccount/.htpasswd
+
+# Mark coming-soon page as public (no login required)
+SetEnvIf Request_URI "^/coming-soon\.html$" allow_public
+
+<IfModule mod_authz_core.c>
+    <RequireAny>
+        Require env allow_public
+        Require valid-user
+    </RequireAny>
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+    Allow from env=allow_public
+    Satisfy any
+    Require valid-user
+</IfModule>
