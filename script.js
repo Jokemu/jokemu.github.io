@@ -18,31 +18,34 @@
 }
 
 const NEWS_ITEMS = {
-    'lorem-ipsum-1': {
-        title: 'Lorem Ipsum 1',
+    'start-seizoen-2026-2027': {
+        title: 'Start seizoen 2026-2027',
         image: '../assets/images/high-5.jpeg',
-        imageAlt: 'Clubnieuws 1',
+        imageAlt: 'Spelers van KV TOGO vieren samen een doelpunt',
         paragraphs: [
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis.',
-            'Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Curabitur blandit tempus porttitor.',
+            'De selectie van KV TOGO is gestart met de voorbereiding op het nieuwe seizoen. In de eerste weken wordt gewerkt aan spelhervattingen, omschakeling en een hoog trainingsritme.',
+            'Ook de jeugdteams draaien inmiddels volledig mee. Per team is een trainingsplan opgesteld, zodat spelers stap voor stap kunnen groeien in techniek en samenspel.',
+            'In de komende periode volgen oefenwedstrijden op eigen veld. Via de agenda op de website delen we de exacte speeltijden zodra deze definitief zijn.',
         ],
     },
-    'lorem-ipsum-2': {
-        title: 'Lorem Ipsum 2',
+    'jeugdtoernooi-op-het-schenge': {
+        title: 'Jeugdtoernooi op Het Schenge',
         image: '../assets/images/happy.jpeg',
-        imageAlt: 'Clubnieuws 2',
+        imageAlt: 'Jeugdspelers van KV TOGO tijdens een toernooidag',
         paragraphs: [
-            'Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
-            'Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.',
+            'Op zaterdag 12 september organiseert KV TOGO een jeugdtoernooi voor F- tot en met B-teams. Clubs uit de regio zijn uitgenodigd voor een volle sportdag op Sportpark Het Schenge.',
+            'De eerste wedstrijden starten om 09:30 uur en de finalerondes staan gepland in de middag. Rondom de velden is er ruimte voor supporters en familie.',
+            'Wil je helpen als tafelofficial, scheidsrechter of teambegeleider? Meld je dan aan via de jeugdcommissie zodat we het toernooi soepel kunnen laten verlopen.',
         ],
     },
-    'lorem-ipsum-3': {
-        title: 'Lorem Ipsum 3',
+    'vrijwilligersavond-en-clubtaken': {
+        title: 'Vrijwilligersavond en clubtaken',
         image: '../assets/images/change.jpeg',
-        imageAlt: 'Clubnieuws 3',
+        imageAlt: 'Vrijwilligers en leden van KV TOGO bij een clubactiviteit',
         paragraphs: [
-            'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Etiam porta sem malesuada magna mollis euismod.',
-            'Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            'Vrijdag 20 september organiseert KV TOGO een vrijwilligersavond in de kantine. We nemen de planning van het najaar door en verdelen de clubtaken voor wedstrijddagen.',
+            'Onderwerpen zijn onder andere barroosters, zaalopbouw, vervoer bij uitwedstrijden en ondersteuning bij activiteiten. Met voldoende hulp houden we de organisatie voor iedereen overzichtelijk.',
+            'Nieuwe vrijwilligers zijn van harte welkom. Ook als je maar af en toe beschikbaar bent, kun je al veel betekenen voor de vereniging.',
         ],
     },
 };
