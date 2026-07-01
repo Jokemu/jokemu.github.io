@@ -1,0 +1,132 @@
+﻿/* Footer */
+.site-footer {
+    background: #000000;
+    color: white;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-socials {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0 0.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.social-icon {
+    width: 2.8rem;
+    height: 2.8rem;
+    object-fit: contain;
+    display: block;
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-instagram,
+.footer-image-link {
+    padding: 0;
+    border: none;
+    background: transparent;
+    min-width: unset;
+    height: auto;
+}
+
+.footer-instagram .instagram-icon {
+    width: 2.8rem;
+    height: 2.8rem;
+}
+
+.footer-image-link .social-icon {
+    width: 2.8rem;
+    height: 2.8rem;
+    object-fit: contain;
+    display: block;
+    filter: none;
+}
+
+.footer-image-link:hover {
+    background: transparent;
+    border: none;
+    transform: translateY(-2px) scale(1.02);
+}
+
+@media (min-width: 1600px) {
+    body {
+        padding-top: 122px;
+    }
+
+    .site-header {
+        padding: 1.15rem 0;
+    }
+
+    .header-content {
+        width: min(1800px, calc(100% - 5rem));
+    }
+
+    .logo-section {
+        gap: 1.1rem;
+    }
+
+    .logo-container img {
+        height: 88px;
+    }
+
+    .kvtogo-text {
+        font-size: 2.6rem;
+        letter-spacing: 0.03em;
+    }
+
+    .slogan {
+        font-size: 0.95rem;
+    }
+
+    .navbar-nav {
+        gap: 3rem;
+    }
+
+    .nav-link {
+        font-size: 1.15rem;
+    }
+
+    .signup-btn {
+        padding: 0.9rem 1.65rem;
+        font-size: 1.05rem;
+    }
+
+    .header-actions {
+        gap: 1rem;
+    }
+}
+

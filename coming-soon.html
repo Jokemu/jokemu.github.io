@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KV TOGO - Coming Soon</title>
+    <meta name="description" content="De website van KV TOGO is tijdelijk offline voor onderhoud en komt na de zomervakantie terug.">
+    <style>
+        :root {
+            --brand-red: #ff0000;
+            --brand-dark-red: #cc0000;
+            --text-dark: #111111;
+            --text-muted: #4b5563;
+            --card-bg: #ffffff;
+            --page-bg: #f6f7fb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Nunito, Arial, sans-serif;
+            color: var(--text-dark);
+            background:
+                radial-gradient(circle at 15% 10%, rgba(255, 0, 0, 0.12), transparent 28%),
+                radial-gradient(circle at 85% 90%, rgba(255, 0, 0, 0.1), transparent 25%),
+                var(--page-bg);
+            display: grid;
+            place-items: center;
+            padding: 20px;
+        }
+
+        .wrap {
+            width: min(760px, 100%);
+            background: var(--card-bg);
+            border: 1px solid #ffd6d6;
+            border-top: 8px solid var(--brand-red);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .label {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: #ffe5e5;
+            color: var(--brand-dark-red);
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+            letter-spacing: 0.01em;
+            line-height: 1.05;
+            font-size: clamp(2rem, 6vw, 3.4rem);
+            color: var(--brand-red);
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.65;
+            color: var(--text-muted);
+            max-width: 60ch;
+            margin: 0 auto;
+        }
+
+        .strong {
+            color: var(--text-dark);
+            font-weight: 800;
+        }
+
+        .small {
+            margin-top: 18px;
+            font-size: 0.95rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <div class="label">Coming Soon</div>
+        <h1>Website in onderhoud</h1>
+        <p>
+            We werken op dit moment aan de website van <span class="strong">KV TOGO</span>.
+            De website is <span class="strong">na de zomervakantie</span> weer volledig online.
+        </p>
+        <p class="small">Bedankt voor je geduld en graag tot snel.</p>
+    </main>
+</body>
+</html>

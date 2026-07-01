@@ -1,0 +1,39 @@
+﻿/* Sponsoren Showcase Swiper */
+.sponsorenSwiper {
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.sponsorenSwiper .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: auto;
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+}
+
+.sponsorenSwiper .swiper-slide a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.sponsorenSwiper .swiper-slide img {
+    max-width: 80%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 1;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.sponsorenSwiper .swiper-slide:hover img {
+    filter: grayscale(100%);
+    opacity: 1;
+}
+

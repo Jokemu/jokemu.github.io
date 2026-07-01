@@ -1,0 +1,172 @@
+﻿/* Responsive */
+@media (max-width: 768px) {
+    body,
+    p,
+    li,
+    a,
+    span,
+    button,
+    input,
+    textarea,
+    select {
+        font-family: 'Nunito', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .kvtogo-text {
+        font-family: 'Impact', sans-serif;
+    }
+
+    .container {
+        padding: 0 14px;
+    }
+
+    .home-intro,
+    .clubnieuws,
+    .agenda,
+    .social-media {
+        padding-top: 1.4rem;
+    }
+
+    .home-intro h2,
+    .clubnieuws h2,
+    .agenda h2,
+    .social-media h2,
+    .sponsoren-showcase h2,
+    .content-card h1 {
+        line-height: 1.15;
+        margin-bottom: 0.75rem;
+    }
+
+    .home-intro p,
+    .clubnieuws-intro-text,
+    .agenda-intro-text,
+    .social-media-text,
+    .content-card p {
+        font-size: 0.98rem;
+        line-height: 1.65;
+    }
+
+    .heroSwiper {
+        aspect-ratio: 16 / 10;
+    }
+
+    .heroSwiper .swiper-button-next,
+    .heroSwiper .swiper-button-prev {
+        display: none;
+    }
+
+    .clubnieuws-grid,
+    .agenda-list,
+    .beleid-docs,
+    .kleding-grid,
+    .commissie-grid,
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-page {
+        margin-top: 1rem;
+        padding: 0 0.75rem;
+    }
+
+    .content-card,
+    .commissies-page .content-card,
+    .kleding-page .content-card,
+    .accommodatie-page .content-card,
+    .contributie-page .content-card {
+        padding: 1rem;
+    }
+
+    .commissies-page {
+        padding: 0.55rem;
+        border-radius: 12px;
+    }
+
+    .commissies-page .commissie-intro {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .accommodatie-map iframe {
+        height: 220px;
+    }
+
+    .current-menu-card {
+        padding: 2.1rem 1rem 1.25rem;
+    }
+
+    .current-menu-card h1 {
+        font-size: 2rem;
+    }
+
+    .order-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 1.05rem;
+        padding: 0.9rem 1.1rem;
+    }
+
+    .table-container {
+        margin: 1rem auto;
+        border-radius: 6px;
+    }
+
+    .training-table th,
+    .training-table td {
+        font-size: 0.86rem;
+        padding: 0.55rem;
+        white-space: nowrap;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .footer-content p {
+        font-size: 0.92rem;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .heroSwiper {
+        aspect-ratio: 4 / 3;
+    }
+
+    .heroSwiper .swiper-pagination {
+        bottom: 10px;
+    }
+
+    .heroSwiper .hero-caption {
+        bottom: 34px;
+        padding: 0.35rem 0.65rem;
+    }
+
+    .heroSwiper .hero-caption-text {
+        font-size: 1.35rem;
+    }
+
+    .clubnieuws-card h3,
+    .agenda-item h3 {
+        font-size: 1.05rem;
+    }
+
+    .agenda-item {
+        padding: 0.8rem 0.8rem 1.25rem;
+    }
+
+    .current-badge {
+        font-size: 0.78rem;
+        padding: 5px 14px;
+    }
+}

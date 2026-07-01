@@ -1,0 +1,12 @@
+/* KV TOGO theme visual stylesheet bundle */
+
+@import url('assets/css/00-base.css');
+@import url('assets/css/10-header.css');
+@import url('assets/css/20-navigation.css');
+@import url('assets/css/30-main-sections.css');
+@import url('assets/css/40-hero-carousel.css');
+@import url('assets/css/50-sponsors-swiper.css');
+@import url('assets/css/60-footer.css');
+@import url('assets/css/70-responsive.css');
+@import url('assets/css/80-table.css');
+@import url('assets/css/90-brasserie.css');
