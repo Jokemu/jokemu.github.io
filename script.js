@@ -185,7 +185,8 @@ function initMobileNavigation() {
 
     const updateHeaderOffset = () => {
         const headerHeight = Math.ceil(header.getBoundingClientRect().height);
-        document.body.style.setProperty('--header-offset', `${headerHeight + 12}px`);
+        const extraOffset = window.innerWidth <= 900 ? 0 : 12;
+        document.body.style.setProperty('--header-offset', `${headerHeight + extraOffset}px`);
     };
 
     const closeAllSubmenus = () => {
