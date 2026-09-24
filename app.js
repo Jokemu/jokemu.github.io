@@ -5,12 +5,21 @@
   const paintScene = document.getElementById('paint-scene');
   const puzzleScene = document.getElementById('puzzle-scene');
   const quoteScene = document.getElementById('quote-scene');
+  const porscheScene = document.getElementById('porsche-scene');
   const gustBtn = document.getElementById('gust-btn');
   const skipTree = document.getElementById('skip-tree');
+  const skipPaint = document.getElementById('skip-paint');
+  const skipPuzzle = document.getElementById('skip-puzzle');
   const toGalleryBtn = document.getElementById('to-gallery-btn');
+  const toPorscheBtn = document.getElementById('to-porsche-btn');
+  const drivePorscheBtn = document.getElementById('drive-porsche-btn');
+  const showCarBtn = document.getElementById('show-car-btn');
+  const porscheCar = document.getElementById('porsche-car');
+  const driveNote = document.getElementById('drive-note');
   const promptEl = document.querySelector('.prompt');
+  const SCENE_FADE_MS = 1400;
 
-  let stage = 'tree'; // 'tree' | 'reveal' | 'paint' | 'puzzle' | 'quote'
+  let stage = 'tree'; // 'tree' | 'reveal' | 'paint' | 'puzzle' | 'quote' | 'porsche'
 
   const LEAF_COUNT = 112;
   const LEAF_ASSETS = [
@@ -37,6 +46,20 @@
   let leaves = [];
   let leavesRemaining = LEAF_COUNT;
   let leafDone = false;
+
+  function hideScene(scene){
+    if(!scene) return;
+    scene.classList.remove('visible');
+    scene.style.opacity = '0';
+    setTimeout(function(){ scene.style.pointerEvents = 'none'; }, SCENE_FADE_MS);
+  }
+
+  function showScene(scene){
+    if(!scene) return;
+    scene.classList.add('visible');
+    scene.style.opacity = '1';
+    scene.style.pointerEvents = 'auto';
+  }
 
   function randomRange(min, max){
     return min + Math.random() * (max - min);
@@ -154,9 +177,8 @@
 
   function showReveal(){
     stage = 'reveal';
-    treeScene.style.opacity = '0';
-    setTimeout(()=>{ treeScene.style.pointerEvents = 'none'; }, 1400);
-    revealScene.classList.add('visible');
+    hideScene(treeScene);
+    showScene(revealScene);
     spawnEmbers();
   }
 
@@ -179,7 +201,8 @@
 
   function showPaint(){
     stage = 'paint';
-    paintScene.classList.add('visible');
+    hideScene(revealScene);
+    showScene(paintScene);
   }
 
   // ---------- painting ----------
@@ -303,13 +326,17 @@
     link.href = canvas.toDataURL('image/png');
     link.click();
   });
-  document.getElementById('to-puzzle-btn').addEventListener('click', function(){
+  function goToPuzzle(){
     buildPuzzle(canvas.toDataURL('image/png'));
-    paintScene.style.opacity = '0';
-    setTimeout(()=>{ paintScene.style.pointerEvents = 'none'; }, 1400);
+    hideScene(paintScene);
     stage = 'puzzle';
-    puzzleScene.classList.add('visible');
-  });
+    showScene(puzzleScene);
+  }
+
+  document.getElementById('to-puzzle-btn').addEventListener('click', goToPuzzle);
+  if(skipPaint){
+    skipPaint.addEventListener('click', goToPuzzle);
+  }
 
   // ---------- puzzle ----------
   const GRID = 3;
@@ -380,10 +407,62 @@
   }
 
   function showQuote(){
-    puzzleScene.style.opacity = '0';
-    setTimeout(()=>{ puzzleScene.style.pointerEvents = 'none'; }, 1400);
+    hideScene(puzzleScene);
     stage = 'quote';
-    quoteScene.classList.add('visible');
+    showScene(quoteScene);
+  }
+
+  function showPorsche(){
+    hideScene(quoteScene);
+    stage = 'porsche';
+    showScene(porscheScene);
+  }
+
+  function drivePorscheAway(){
+    if(!porscheCar || !drivePorscheBtn) return;
+    if(porscheCar.classList.contains('drive-away')) return;
+    if(showCarBtn){
+      showCarBtn.hidden = true;
+    }
+    if(porscheScene){
+      porscheScene.classList.add('is-driving');
+    }
+    porscheCar.classList.add('drive-away');
+    drivePorscheBtn.disabled = true;
+    drivePorscheBtn.style.opacity = '0.65';
+    if(driveNote){
+      driveNote.textContent = 'Veel veilige kilometers samen.';
+    }
+  }
+
+  function showCarAgain(){
+    if(!porscheCar) return;
+    porscheCar.classList.remove('drive-away');
+    if(porscheScene){
+      porscheScene.classList.remove('is-driving');
+    }
+    if(drivePorscheBtn){
+      drivePorscheBtn.disabled = false;
+      drivePorscheBtn.style.opacity = '';
+    }
+    if(showCarBtn){
+      showCarBtn.hidden = true;
+    }
+    if(driveNote){
+      driveNote.textContent = 'Daar staat je kunstwerk weer.';
+    }
+  }
+
+  if(porscheCar){
+    porscheCar.addEventListener('animationend', function(e){
+      if(e.animationName !== 'drive-away') return;
+      if(porscheScene){
+        porscheScene.classList.remove('is-driving');
+      }
+      if(showCarBtn){
+        showCarBtn.hidden = false;
+      }
+    });
   }
 
   function handleGust(){
@@ -393,6 +472,18 @@
   gustBtn.addEventListener('click', handleGust);
   skipTree.addEventListener('click', function(){ if(!leafDone){ leafDone = true; showReveal(); } });
   toGalleryBtn.addEventListener('click', showPaint);
+  if(skipPuzzle){
+    skipPuzzle.addEventListener('click', showQuote);
+  }
+  if(toPorscheBtn){
+    toPorscheBtn.addEventListener('click', showPorsche);
+  }
+  if(drivePorscheBtn){
+    drivePorscheBtn.addEventListener('click', drivePorscheAway);
+  }
+  if(showCarBtn){
+    showCarBtn.addEventListener('click', showCarAgain);
+  }
 
   // Optional: microphone-based blowing with desktop-friendly detection.
   let micArmed = false;
