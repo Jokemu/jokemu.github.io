@@ -42,7 +42,10 @@ body{
 }
 .prompt strong{ color:var(--ink); font-weight:500; }
 #canopy-wrap{
-  position:relative; width:min(90vw,560px); height:min(70vh,560px);
+  position:relative;
+  width:min(90vw,560px);
+  height:min(90vw,560px);
+  max-height:70vh;
 }
 #canopy-wrap::before{
   content:'';

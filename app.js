@@ -95,7 +95,7 @@
     const offsetX = (Math.random() - Math.random()) * anchor.spreadX;
     const offsetY = (Math.random() - Math.random()) * anchor.spreadY;
     const x = clamp(anchor.x + offsetX, 28, 74);
-    const y = clamp(anchor.y + offsetY, 20, 53);
+    const y = clamp(anchor.y + offsetY, 28, 62);
     return { x:x, y:y };
   }
 
