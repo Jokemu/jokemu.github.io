@@ -518,10 +518,12 @@
     micArmed = true;
     if(!window.isSecureContext){
       setMicHint('Microfoon werkt op desktop meestal alleen via https of localhost.');
+      micArmed = false;
       return;
     }
     if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
       setMicHint('Je browser ondersteunt geen microfoon-toegang voor deze pagina.');
+      micArmed = false;
       return;
     }
     navigator.mediaDevices.getUserMedia({ audio:true }).then(function(stream){
@@ -557,14 +559,17 @@
           requestAnimationFrame(poll);
         })();
       }catch(e){
+        micArmed = false;
         setMicHint('Microfoon kon niet opstarten. Klikken werkt altijd als fallback.');
       }
     }).catch(function(){
+      micArmed = false;
       setMicHint('Geen microfoon-toegang. Geef toestemming in je browser-instellingen.');
     });
   }
 
   createLeaves();
+  armMic();
   document.body.addEventListener('click', armMic, { once:true });
   document.body.addEventListener('touchstart', armMic, { once:true, passive:true });
   document.body.addEventListener('keydown', armMic, { once:true });
