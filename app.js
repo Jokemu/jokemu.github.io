@@ -17,6 +17,8 @@
   const porscheCar = document.getElementById('porsche-car');
   const driveNote = document.getElementById('drive-note');
   const promptEl = document.querySelector('.prompt');
+  const revealHeadline = revealScene ? revealScene.querySelector('.headline') : null;
+  const revealHeadlineSub = revealScene ? revealScene.querySelector('.headline-sub') : null;
   const SCENE_FADE_MS = 1400;
 
   let stage = 'tree'; // 'tree' | 'reveal' | 'paint' | 'puzzle' | 'quote' | 'porsche'
@@ -181,6 +183,29 @@
     showScene(revealScene);
     spawnEmbers();
   }
+
+  function formatDutchDate(date){
+    const day = date.getDate();
+    const month = new Intl.DateTimeFormat('nl-NL', { month:'long' }).format(date);
+    return day + ' ' + month;
+  }
+
+  function initRevealDate(){
+    if(!revealHeadline || !revealHeadlineSub) return;
+
+    const today = new Date();
+    const isAnniversaryDay = today.getDate() === 26 && today.getMonth() === 8;
+
+    revealHeadlineSub.textContent = 'vandaag, ' + formatDutchDate(today);
+
+    if(isAnniversaryDay){
+      revealHeadline.hidden = false;
+    } else {
+      revealHeadline.hidden = true;
+    }
+  }
+
+  initRevealDate();
 
   function spawnEmbers(){
     const emberPalette = ['#2f4a3a', '#3f6650', '#c98783', '#de6fa8'];
