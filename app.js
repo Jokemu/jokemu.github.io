@@ -20,6 +20,8 @@
   const revealHeadline = revealScene ? revealScene.querySelector('.headline') : null;
   const revealHeadlineSub = revealScene ? revealScene.querySelector('.headline-sub') : null;
   const SCENE_FADE_MS = 1400;
+  const ANNIVERSARY_DAY = 26;
+  const ANNIVERSARY_MONTH_INDEX = 8; // September (0-based month index)
 
   let stage = 'tree'; // 'tree' | 'reveal' | 'paint' | 'puzzle' | 'quote' | 'porsche'
 
@@ -178,10 +180,21 @@
   }
 
   function showReveal(){
+    if(!isAnniversaryDate(new Date())){
+      stage = 'paint';
+      hideScene(treeScene);
+      showScene(paintScene);
+      return;
+    }
+
     stage = 'reveal';
     hideScene(treeScene);
     showScene(revealScene);
     spawnEmbers();
+  }
+
+  function isAnniversaryDate(date){
+    return date.getDate() === ANNIVERSARY_DAY && date.getMonth() === ANNIVERSARY_MONTH_INDEX;
   }
 
   function formatDutchDate(date){
@@ -194,7 +207,7 @@
     if(!revealHeadline || !revealHeadlineSub) return;
 
     const today = new Date();
-    const isAnniversaryDay = today.getDate() === 26 && today.getMonth() === 8;
+    const isAnniversaryDay = isAnniversaryDate(today);
 
     revealHeadlineSub.textContent = 'vandaag, ' + formatDutchDate(today);
 
